@@ -6,6 +6,9 @@ venv/
 /.pnp
 .pnp.js
 
+# Ignore datasets
+Datasets/*
+
 # testing
 /coverage
 
