@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="static/script.js" defer></script>
+  </head>
+  <body>
+    <!-- header -->
+    <h1 class="text-3xl font-bold underline">
+        <header class="text-gray-400 bg-gray-900 body-font">
+            <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+              <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">Rumor Stance Classifier</span>
+              </a>
+              <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+                <a href="index.html" class="mr-5 hover:text-white">Home</a>
+                <a href="aboutus.html" class="mr-5 hover:text-white">About Us</a>
+                <a href="prediction.html" class="mr-5 hover:text-white">Prediction</a>
+                <a href="opinion.html" class="mr-5 hover:text-white">Opinion</a>
+              
+              </nav>
+              <a href="login.html"><button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">LOGIN
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button></a>
+            </div>
+          </header>
+<hr>
+<section class="text-gray-400 bg-gray-900 body-font w-screen min-h-screen flex flex-col">
+  <div class="flex-grow px-10 py-24 mx-auto w-full flex flex-col lg:flex-row items-center"> 
+    <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+      <h2 class="sm:text-3xl text-2xl text-white font-medium title-font mb-2">Detecting Stance in Online Rumors</h2>
+      <p class="leading-relaxed text-base mb-4">Our AI-powered <b>Rumor Stance Classification Model</b> analyzes online discussions to determine whether a post <b>supports, denies, questions, or comments</b> on a rumor. By leveraging deep learning, it helps identify misinformation trends and improve fact-checking accuracy.</p>
+      <div class="flex items-center">
+        <a href="prediction.html">
+          <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded">Predict</button>
+        </a>
+        <a class="text-blue-400 inline-flex items-center ml-4">Learn More
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a> 
+      </div>
+    </div>
+    <div class="lg:w-1/2 w-full lg:h-auto h-48 object-cover object-center rounded lg:ml-auto">
+      <img alt="ecommerce" class="w-full h-full" src="{{ url_for('static', filename='images/original.jpg') }}">
+
+    </div>
+  </div>
+          <hr>
+           <!-- footer -->
+          <footer class="text-gray-400 bg-gray-900 body-font text-sm">
+  <div class="container px-4 py-10 mx-auto flex flex-wrap justify-between">
+    <div class="w-48 text-center md:text-left mb-4 md:mb-0">
+      <a class="flex title-font font-medium items-center justify-center md:justify-start text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-white p-1 bg-blue-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-2 text-lg">Rumor Stance Classifier</span>
+      </a>
+      <p class="mt-1 text-xs text-gray-500">AI-powered model for rumor stance detection.</p>
+    </div>
+    <div class="flex-grow flex flex-wrap justify-around text-center md:text-left">
+      <div class="w-1/4 px-2">
+        <h2 class="text-white text-xs font-medium mb-2">FEATURES</h2>
+        <nav class="list-none">
+          <li><a class="hover:text-white">Real-time Analysis</a></li>
+          <li><a class="hover:text-white">Deep Learning Insights</a></li>
+          <li><a class="hover:text-white">User-Friendly Interface</a></li>
+          <li><a class="hover:text-white">API Integration</a></li>
+        </nav>
+      </div>
+      <div class="w-1/4 px-2">
+        <h2 class="text-white text-xs font-medium mb-2">RESOURCES</h2>
+        <nav class="list-none">
+          <li><a class="hover:text-white">Documentation</a></li>
+          <li><a class="hover:text-white">GitHub Repo</a></li>
+          <li><a class="hover:text-white">Whitepaper</a></li>
+          <li><a class="hover:text-white">API Docs</a></li>
+        </nav>
+      </div>
+      <div class="w-1/4 px-2">
+        <h2 class="text-white text-xs font-medium mb-2">SUPPORT</h2>
+        <nav class="list-none">
+          <li><a href= "faq.html" class="hover:text-white">FAQs</a></li>
+          <li><a class="hover:text-white">Community Forum</a></li>
+          <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+          <li><a class="hover:text-white">Report an Issue</a></li>
+        </nav>
+      </div>
+      <div class="w-1/4 px-2">
+        <h2 class="text-white text-xs font-medium mb-2">CONNECT</h2>
+        <nav class="list-none">
+          <li><a class="hover:text-white">Twitter</a></li>
+          <li><a class="hover:text-white">LinkedIn</a></li>
+          <li><a class="hover:text-white">GitHub</a></li>
+          <li><a class="hover:text-white">Newsletter</a></li>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-800 py-3 text-center text-xs">
+    <p>© 2025 Rumor Stance Classifier — Built with AI & NLP</p>
+  </div>
+</footer>
+
+          
+    </h1>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bluecharcoal: '#010D1A',
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f25154fa92.js" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+
+    <title>Frequently Asked Questions</title>
+  </head>
+  <body class="bg-bluecharcoal text-white min-h-screen font-[Merriweather]">
+    <a href="index.html" class="absolute top-5 left-5 text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Back</span>
+      </a>
+    <section id="FAQs" class="py-20 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+
+        <div class="space-y-6">
+
+          <!-- FAQ 1 -->
+          <div class="border border-gray-600 rounded-lg p-4 shadow-sm bg-gray-900 bg-opacity-30">
+            <div class="cursor-pointer text-lg font-semibold mb-2" onclick="toggleAnswer('faq1')">
+              What is Rumor Stance Classification?
+            </div>
+            <div id="faq1" class="hidden text-sm leading-relaxed">
+              Rumor stance classification involves categorizing user responses to rumors into distinct classes based on their expressed attitudes.
+              <br><br>
+              <strong>Categories:</strong><br>
+              1. Support: The user agrees with or endorses the rumor.<br>
+              2. Deny: The user refutes the rumor's veracity.<br>
+              3. Query: The user seeks additional evidence or clarification.<br>
+              4. Comment: The user provides a remark that does not assess the truthfulness.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-gray-600 rounded-lg p-4 shadow-sm bg-gray-900 bg-opacity-30">
+            <div class="cursor-pointer text-lg font-semibold mb-2" onclick="toggleAnswer('faq2')">
+              Why is Rumor Stance Classification Important?
+            </div>
+            <div id="faq2" class="hidden text-sm leading-relaxed">
+              RSC is vital for detecting and managing misinformation on social media platforms.
+              <br><br>
+              <strong>Benefits:</strong><br>
+              1. Judge public belief in rumors.<br>
+              2. Identify harmful misinformation.<br>
+              3. Improve the accuracy of automated fact-checking systems.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-gray-600 rounded-lg p-4 shadow-sm bg-gray-900 bg-opacity-30">
+            <div class="cursor-pointer text-lg font-semibold mb-2" onclick="toggleAnswer('faq3')">
+              How does context influence rumor stance classification?
+            </div>
+            <div id="faq3" class="hidden text-sm leading-relaxed">
+              Context heavily impacts how users express their stance.
+              <br><br>
+              <strong>Key Factors:</strong><br>
+              1. Previous Interactions: Provide sentiment trends.<br>
+              2. Cultural References: Affect interpretation.<br>
+              3. Timing: Influences how rumors are perceived.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="border border-gray-600 rounded-lg p-4 shadow-sm bg-gray-900 bg-opacity-30">
+            <div class="cursor-pointer text-lg font-semibold mb-2" onclick="toggleAnswer('faq4')">
+              How do you evaluate the performance of Rumor Stance Classification models?
+            </div>
+            <div id="faq4" class="hidden text-sm leading-relaxed">
+              Performance is measured using common metrics:
+              <br><br>
+              1. Accuracy<br>
+              2. Precision<br>
+              3. Recall<br>
+              4. F1 Score (balance between precision and recall)
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="border border-gray-600 rounded-lg p-4 shadow-sm bg-gray-900 bg-opacity-30">
+            <div class="cursor-pointer text-lg font-semibold mb-2" onclick="toggleAnswer('faq5')">
+              What types of data are used for Rumor Stance Classification?
+            </div>
+            <div id="faq5" class="hidden text-sm leading-relaxed">
+              RSC uses data from various online sources:
+              <br><br>
+              1. Twitter: Trending tweets<br>
+              2. Reddit: Discussion threads<br>
+              3. Facebook: Public posts and comments<br>
+              4. News Sites: Articles that spread or debunk rumors
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Toggle Answer JS -->
+    <script>
+      function toggleAnswer(faqId) {
+        const answer = document.getElementById(faqId);
+        answer.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
