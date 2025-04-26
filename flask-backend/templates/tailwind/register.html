@@ -6,9 +6,53 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script src="static/script.js" defer></script>
   <title>Sign Up</title>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const signupForm = document.getElementById('signupForm');
+      const formMessage = document.getElementById('formMessage');
+
+      signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+          formMessage.textContent = 'Passwords do not match!';
+          formMessage.classList.add('text-red-600');
+          return;
+        }
+
+        try {
+          // Send registration data to the backend
+          const response = await fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: email, password: password })
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            formMessage.textContent = result.message;
+            formMessage.classList.remove('text-red-600');
+            formMessage.classList.add('text-green-600');
+          } else {
+            formMessage.textContent = result.error;
+            formMessage.classList.add('text-red-600');
+          }
+        } catch (error) {
+          formMessage.textContent = 'An error occurred. Please try again.';
+          formMessage.classList.add('text-red-600');
+        }
+      });
+    });
+  </script>
 </head>
 <body>
-  <a href="index.html" class="absolute top-5 left-5 text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">
+  <a href="{{ url_for('home') }}" class="absolute top-5 left-5 text-white bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg shadow-lg flex items-center space-x-2">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
     </svg>
@@ -59,7 +103,7 @@
           <a href="#" class="text-indigo-500">Privacy Policy</a>.
         </p>
         <p class="text-sm text-gray-500 mt-3">
-          Already have an account? <a href="login.html" class="text-indigo-500">Log in</a>
+          Already have an account? <a href="/login" class="text-indigo-500">Log in</a>
         </p>
       </div>
     </div>

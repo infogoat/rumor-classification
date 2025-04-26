@@ -49,4 +49,61 @@ document.addEventListener("DOMContentLoaded", function () {
       checkButton.textContent = "Check";
     }
   });
+
+  // Handle signup form if it exists
+  const signupForm = document.getElementById("signupForm");
+  if (signupForm) {
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+      const formMessage = document.getElementById("formMessage");
+
+      if (password !== confirmPassword) {
+        formMessage.textContent = "Passwords do not match!";
+        formMessage.classList.remove("text-green-600");
+        formMessage.classList.add("text-red-600");
+        return;
+      }
+
+      // Here you would normally send the data to your backend
+      formMessage.textContent = "Account created successfully!";
+      formMessage.classList.remove("text-red-600");
+      formMessage.classList.add("text-green-600");
+      signupForm.reset();
+    });
+  }
+
+  // Handle opinion form if it exists
+  const opinionForm = document.getElementById("opinionForm");
+  if (opinionForm) {
+    opinionForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      alert(`Thank you, ${name}! Your opinion has been recorded.`);
+      opinionForm.reset();
+    });
+  }
+
+  // Handle FAQ toggles
+  const toggleAnswer = (faqId) => {
+    const answer = document.getElementById(faqId);
+    if (answer) {
+      answer.classList.toggle("hidden");
+    }
+  };
+
+  // Expose toggleAnswer to global scope for onclick handlers
+  window.toggleAnswer = toggleAnswer;
 });
+

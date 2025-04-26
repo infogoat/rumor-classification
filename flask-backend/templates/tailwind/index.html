@@ -18,13 +18,13 @@
                 <span class="ml-3 text-xl">Rumor Stance Classifier</span>
               </a>
               <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-                <a href="index.html" class="mr-5 hover:text-white">Home</a>
-                <a href="aboutus.html" class="mr-5 hover:text-white">About Us</a>
-                <a href="prediction.html" class="mr-5 hover:text-white">Prediction</a>
-                <a href="opinion.html" class="mr-5 hover:text-white">Opinion</a>
+                <a href="/" class="mr-5 hover:text-white">Home</a>
+                <a href="{{ url_for('aboutus') }}" class="mr-5 hover:text-white">About Us</a>
+                <a href="/predict-page" class="mr-5 hover:text-white">Prediction</a>
+                <a href="/opinion" class="mr-5 hover:text-white">Opinion</a>
               
               </nav>
-              <a href="login.html"><button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">LOGIN
+              <a href="/login"><button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">LOGIN
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
@@ -38,7 +38,7 @@
       <h2 class="sm:text-3xl text-2xl text-white font-medium title-font mb-2">Detecting Stance in Online Rumors</h2>
       <p class="leading-relaxed text-base mb-4">Our AI-powered <b>Rumor Stance Classification Model</b> analyzes online discussions to determine whether a post <b>supports, denies, questions, or comments</b> on a rumor. By leveraging deep learning, it helps identify misinformation trends and improve fact-checking accuracy.</p>
       <div class="flex items-center">
-        <a href="prediction.html">
+        <a href="/predict-page">
           <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded">Predict</button>
         </a>
         <a class="text-blue-400 inline-flex items-center ml-4">Learn More
@@ -88,9 +88,9 @@
       <div class="w-1/4 px-2">
         <h2 class="text-white text-xs font-medium mb-2">SUPPORT</h2>
         <nav class="list-none">
-          <li><a href= "faq.html" class="hover:text-white">FAQs</a></li>
+          <li><a href= "/faq" class="hover:text-white">FAQs</a></li>
           <li><a class="hover:text-white">Community Forum</a></li>
-          <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
+          <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
           <li><a class="hover:text-white">Report an Issue</a></li>
         </nav>
       </div>
