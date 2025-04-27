@@ -1,70 +1,187 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Rumor Stance Detection
 
-## Available Scripts
+Detect the **stance** (support, deny, question, or neutral) of a rumor or news using a combination of deep learning models and web technologies.  
+This project leverages a **Flask backend**, **TailwindCSS frontend**, and a **transformer-based** zero-shot classification model for production.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+rumorStance/
+├── flask-backend/
+│   ├── app.py
+│   ├── requirements.txt
+│   ├── templates/
+│   ├── static/
+│   ├── setup.sh / setup.bat
+│   └── tailwind.config.js
+├── Datasets/
+│   ├── Fake News/
+│       ├── fake_news.csv
+│       └── true_news.csv
+├── README.md
+└── .gitignore
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Zero-Shot Classification** using Transformer models (`facebook/bart-large-mnli`).
+- **Foundational LSTM Model** for binary fake/real classification (early prototype).
+- **Flask API** to handle model predictions efficiently.
+- **Modern UI** built with TailwindCSS.
+- **Authentication system** (Register, Login).
+- **Opinion Section** for user feedback.
+- **Multiple UI Pages** (About Us, FAQ, Contact).
+- **Cross-platform setup scripts** (Windows and Linux).
+- **Preprocessing of News Articles**.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧠 Model Evolution
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Initially, a custom **LSTM model** was developed for **binary classification** (Fake vs. Real news).  
+However, during experimentation:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **LSTM suffered from overfitting** on small datasets.
+- To enhance performance and generalization, we **migrated** to a **Transformer-based Zero-Shot model**.
+- **Final Production Model:** `facebook/bart-large-mnli` deployed via Hugging Face pipelines.
 
-### `npm run eject`
+**Note:** The original LSTM architecture still exists inside the project as a reference.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 Installation and Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Clone the Repository
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+git clone https://github.com/infogoat/rumorStance.git
+cd rumorStance/flask-backend
+```
 
-## Learn More
+### 2. Create a Virtual Environment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+```
 
-### Code Splitting
+### 3. Install Python Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+pip install -r requirements.txt
+```
 
-### Analyzing the Bundle Size
+### 4. (Optional) Install Frontend Dependencies (for Tailwind)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm install
+npm run dev
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📈 Running the App
 
-### Advanced Configuration
+```bash
+# Start Flask server
+python app.py
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🗄️ Datasets
 
-### `npm run build` fails to minify
+- `Datasets/Fake News/fake_news.csv` — Fake news examples.
+- `Datasets/Fake News/true_news.csv` — Real news examples.
+- These datasets were used for initial model training and evaluation.
+- **Important:** Files are large (above 50MB), which is why GitHub recommends Git Large File Storage (LFS).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📋 Available Pages
+
+- **Home:** Main Prediction Interface
+- **Login/Register:** User authentication
+- **Opinion:** Submit your thoughts
+- **FAQ:** Frequently Asked Questions
+- **About Us:** Project Details
+- **Contact:** Reach out form
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.  
+Please make sure to update tests as appropriate.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.  
+Feel free to fork it, improve it, and use it in your own work.
+
+---
+
+## 🙏 Acknowledgements
+
+- [Hugging Face Transformers](https://huggingface.co/transformers/)
+- [Flask Documentation](https://flask.palletsprojects.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- Special thanks to all open-source contributors whose packages made this project possible.
+
+---
+
+## 💬 Contact
+
+If you have any questions or suggestions, feel free to reach out by creating an issue in the repository.
+
+---
+```
+
+---
+
+# ✅ Now, **what you should do**:
+
+1. Create a new file in your project:  
+`rumorStance/README.md`
+
+2. Paste the above content exactly.
+
+---
+
+# ⚡ Bonus Tip:
+Add a `.gitignore` like this inside `flask-backend/.gitignore`:
+
+```bash
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+package-lock.json
+
+# Others
+.DS_Store
+*.log
+.env
+*.stackdump
+```
+
+👉 This will prevent you from accidentally uploading venv, node_modules, and other junk files.
+
+---
