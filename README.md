@@ -185,6 +185,3 @@ package-lock.json
 👉 This will prevent you from accidentally uploading venv, node_modules, and other junk files.
 
 ---
-
-Would you also like me to give a small "project logo/banner" you can put at the top of the README to make it even cooler? 🎨🚀 (optional but looks amazing)  
-Want it?
