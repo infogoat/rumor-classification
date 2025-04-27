@@ -1,13 +1,4 @@
-Perfect, thanks for the extra detail!  
-I'll include **everything properly** — explaining your **LSTM model's story** (how it was foundational but you moved to transformers).
 
-I'll write the **full `README.md`** now, ready to be **copied-pasted directly**.
-
----
-
-# 📝 FINAL `README.md` FILE:
-
-```markdown
 # Rumor Stance Detection
 
 Detect the **stance** (support, deny, question, or neutral) of a rumor or news using a combination of deep learning models and web technologies.  
